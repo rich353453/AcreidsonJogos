@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrinho - Acreidson</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <header class="bg-gray-900/95 backdrop-blur-md border-b border-purple-500/20 sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="./index.html" class="flex items-center space-x-2 group">
+          <div class="p-2 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg"><span class="block h-6 w-6">🎮</span></div>
+          <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Acreidson</span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="./index.html" class="text-gray-300 hover:text-white transition-colors font-medium">Início</a>
+          <a href="./jogos.html" class="text-gray-300 hover:text-white transition-colors font-medium">Jogos</a>
+          <a href="./carrinho.html" class="relative p-2 text-gray-300 hover:text-white transition-colors">🛒 <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold"></span></a>
+        </nav>
+        <form id="search-form" class="hidden md:flex items-center flex-1 max-w-md mx-8">
+          <div class="relative w-full">
+            <input id="search-input" type="text" placeholder="Buscar jogos..." class="w-full bg-gray-800 border border-gray-700 rounded-lg pl-3 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-200" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="min-h-screen bg-gray-900 py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Carrinho de Compras</h1>
+        </div>
+        <a href="./jogos.html" class="inline-flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors">⬅️ <span>Continuar Comprando</span></a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2 space-y-4" id="cart-list"></div>
+
+        <div class="space-y-6">
+          <div class="bg-gray-800 rounded-xl p-6 sticky top-8">
+            <h2 class="text-xl font-bold text-white mb-6">Resumo do Pedido</h2>
+            <div class="space-y-4 mb-6">
+              <div class="flex justify-between text-gray-300">
+                <span>Subtotal</span>
+                <span id="summary-subtotal">R$ 0,00</span>
+              </div>
+              <div class="flex justify-between text-gray-300">
+                <span>Desconto</span>
+                <span class="text-green-400">-R$ 0,00</span>
+              </div>
+              <div class="border-t border-gray-700 pt-4">
+                <div class="flex justify-between text-white font-bold text-lg">
+                  <span>Total</span>
+                  <span id="summary-total">R$ 0,00</span>
+                </div>
+              </div>
+            </div>
+            <button id="checkout-btn" class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300 mb-4">Finalizar via WhatsApp</button>
+            <div class="text-center text-gray-400 text-sm">Envie seu pedido diretamente pelo WhatsApp</div>
+          </div>
+
+          <button id="clear-cart-btn" class="w-full text-red-400 hover:text-red-300 border border-red-400/30 hover:border-red-400/50 py-3 rounded-xl font-medium transition-all duration-300">Limpar Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-950 border-t border-gray-800 mt-16">
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-4">
+          <div class="flex items-center space-x-2">
+            <div class="p-2 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg"><span class="block h-6 w-6">🎮</span></div>
+            <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">Acreidson</span>
+          </div>
+          <p class="text-gray-400 text-sm">A melhor loja de jogos online com os lançamentos mais recentes e clássicos atemporais.</p>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-4">Links Rápidos</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="./index.html" class="text-gray-400 hover:text-white transition-colors">Início</a></li>
+            <li><a href="./jogos.html" class="text-gray-400 hover:text-white transition-colors">Todos os Jogos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-4">Categorias</h3>
+          <ul class="space-y-2 text-sm">
+            <li><span class="text-gray-400">Ação</span></li>
+            <li><span class="text-gray-400">Aventura</span></li>
+            <li><span class="text-gray-400">RPG</span></li>
+            <li><span class="text-gray-400">Esportes</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold mb-4">Suporte</h3>
+          <ul class="space-y-2 text-sm">
+            <li><span class="text-gray-400">Central de Ajuda</span></li>
+            <li><span class="text-gray-400">Contato</span></li>
+            <li><span class="text-gray-400">Política de Privacidade</span></li>
+            <li><span class="text-gray-400">Termos de Uso</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+        <p class="text-gray-400 text-sm">© 2024 Acreidson. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a id="whatsapp-btn" class="fixed bottom-6 right-6 z-50 group" target="_blank" rel="noopener noreferrer">
+    <div class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center space-x-2">
+      <span class="h-6 w-6">💬</span>
+      <span class="hidden md:block font-medium">Fale Conosco</span>
+    </div>
+  </a>
+
+  <script src="./assets/js/data.js"></script>
+  <script src="./assets/js/cart.js"></script>
+  <script src="./assets/js/app.js"></script>
+</body>
+</html> 
